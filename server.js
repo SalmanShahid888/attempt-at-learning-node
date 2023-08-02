@@ -1,22 +1,11 @@
 const express = require("express");
+const dotenv = require("dotenv").config();
 
 const app = express();
 
-app.set("view engine", "ejs");
+const port = process.env.PORT || 3000;
+app.use("/api/contacts", require("./routes/contactRoutes"));
 
-app.get("/", (req, res, next) => {
-  console.log("Here");
-  res.render("index");
-});
-
-app.get("/users", (req, res) => {
-  res.send("Users List");
-});
-
-app.get("/users/new", (req, res) => {
-  res.send("new-user");
-});
-
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(port, () => {
+  console.log(`Server is running on port 3000 ${port}`);
 });
