@@ -10,7 +10,7 @@ const {
 
 router.route("/").get(getContacts);
 
-router.route("/").post(createContact);
+router.route("/some").post(createContact);
 
 router.route("/:id").get(getContact);
 

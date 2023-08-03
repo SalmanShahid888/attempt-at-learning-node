@@ -19,6 +19,12 @@ const deleteContact = (req, res) => {
 };
 
 const createContact = (req, res) => {
+  console.log("REQ BODY ------", req.body);
+  const { name, email, phone } = req.body;
+  if (!name || !email || !phone) {
+    res.status(400);
+    throw new Error(`ERR:400 ------ Please fill all the fields `);
+  }
   res.status(200).json({ message: "Contact Created" });
 };
 
