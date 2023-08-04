@@ -23,7 +23,7 @@ const createContact = (req, res) => {
   const { name, email, phone } = req.body;
   if (!name || !email || !phone) {
     res.status(400);
-    throw new Error(`ERR:400 ------ Please fill all the fields `);
+    throw new Error(`ERR:400 ------ Please fill all the fields to continue`);
   }
   res.status(200).json({ message: "Contact Created" });
 };
